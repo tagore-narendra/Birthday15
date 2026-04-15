@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Birthday</title>
+
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial;
+            color: white;
+            text-align: center;
+            background-size: cover;
+            background-position: center;
+            transition: background-image 1s ease-in-out;
+        }
+
+        #message {
+            display: none;
+            font-size: 50px;
+            font-weight: bold;
+            background: linear-gradient(45deg, red, yellow, green, blue);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        button {
+            font-size: 25px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<button id="btn">Click here 🎉</button>
+
+
+<div id="message">
+    🎂 Happy Birthday Bava 🎂
+    <br><br>
+    <span style="font-size:30px; color:rgb(238, 15, 205);">
+        💖 Bavaku Prematho 💖
+    </span>
+    <span style="font-size:30px; color:rgb(8, 209, 22);">
+        💖 1 Hour bokka 💖
+    </span>
+</div>
+
+<!-- 🎵 ADD THIS -->
+<audio id="music" src="song.mpeg"></audio>
+
+<script>
+
+// 👉 Your images
+let images = [
+    "img1.jpg.png",
+    "img2.jpg.png",
+    "img3.jpg.png",
+    "img3.jpeg",
+    "img4.jpeg",
+    "img5.jpeg"
+];
+
+let index = 0;
+
+document.getElementById("btn").addEventListener("click", function () {
+
+    // hide button
+    document.getElementById("btn").style.display = "none";
+
+    // show message
+    document.getElementById("message").style.display = "block";
+
+    // 🎵 play music
+    let music = document.getElementById("music");
+    music.play().catch(() => {});
+
+    // slideshow
+    setInterval(() => {
+        document.body.style.backgroundImage = "url('" + images[index] + "')";
+        index = (index + 1) % images.length;
+    }, 2000);
+});
+
+</script>
+
+</body>
+</html>
